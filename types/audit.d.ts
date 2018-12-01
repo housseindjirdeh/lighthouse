@@ -53,6 +53,8 @@ declare global {
       failureTitle?: string;
       /** A more detailed description that describes why the audit is important and links to Lighthouse documentation on the audit; markdown links supported. */
       description: string;
+      /** TODO(houssein): fix advice pack stuffs */
+      secondaryDescription?: string;
       /** A list of the members of LH.Artifacts that must be present for the audit to execute. */
       requiredArtifacts: Array<keyof Artifacts>;
       /** A string identifying how the score should be interpreted for display. */
@@ -75,6 +77,7 @@ declare global {
       explanation?: string;
       /** Error message from any exception thrown while running this audit. */
       errorMessage?: string;
+      secondaryDescription?: string;
       warnings?: string[];
       /** Deprecated and does not make its way into the Lighthouse report. */
       extendedInfo?: {[p: string]: any};
@@ -116,6 +119,8 @@ declare global {
       numericValue?: number;
       /** Extra information about the page provided by some types of audits, in one of several possible forms that can be rendered in the HTML report. */
       details?: Audit.Details;
+      /** TODO(houssein): fix advice pack plumbing */
+      secondaryDescription?: string;
     }
 
     export interface Results {

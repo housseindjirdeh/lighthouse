@@ -19,6 +19,8 @@ const UIStrings = {
   description: 'Large GIFs are inefficient for delivering animated content. Consider using ' +
     'MPEG4/WebM videos for animations and PNG/WebP for static images instead of GIF to save ' +
     'network bytes. [Learn more](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/replace-animated-gifs-with-video/)',
+  wordpressDescription: 'Consider uploading your GIF to a service which will then make it available ' +
+    'to embed an HTML5 video. Alternatively find a plugin that will automatically convert GIF images into videos upon upload.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -36,6 +38,7 @@ class EfficientAnimatedContent extends ByteEfficiencyAudit {
       id: 'efficient-animated-content',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['devtoolsLogs', 'traces'],
     };

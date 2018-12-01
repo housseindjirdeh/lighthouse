@@ -23,6 +23,7 @@ const UIStrings = {
   description:
     'A long cache lifetime can speed up repeat visits to your page. ' +
     '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/cache-policy).',
+  wordpressDescription: 'Read more about [Browser Caching in WordPress](https://codex.wordpress.org/WordPress_Optimization#Browser_Caching).',
   /** [ICU Syntax] Label for the audit identifying network resources with inefficient cache values. Clicking this will expand the audit to show the resources. */
   displayValue: `{itemCount, plural,
     =1 {1 resource found}
@@ -45,6 +46,7 @@ class CacheHeaders extends Audit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['devtoolsLogs', 'traces'],
     };

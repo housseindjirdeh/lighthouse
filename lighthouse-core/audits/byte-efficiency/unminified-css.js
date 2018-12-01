@@ -16,6 +16,9 @@ const UIStrings = {
   /** Description of a Lighthouse audit that tells the user *why* they should minify (remove whitespace) the page's CSS code. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description: 'Minifying CSS files can reduce network payload sizes. ' +
     '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/minify-css).',
+  wordpressDescription:
+    'A number of WordPress plugins can speed up your site by concatenating, minifying, ' +
+    'and compressing your styles. You may also want to use a build process to do this minification up-front if possible.'
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -35,6 +38,7 @@ class UnminifiedCSS extends ByteEfficiencyAudit {
       id: 'unminified-css',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['CSSUsage', 'devtoolsLogs', 'traces', 'URL'],
     };

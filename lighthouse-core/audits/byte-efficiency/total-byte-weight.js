@@ -19,6 +19,11 @@ const UIStrings = {
   'Large network payloads cost users real money and are highly correlated with ' +
   'long load times. [Learn ' +
   'more](https://developers.google.com/web/tools/lighthouse/audits/network-payloads).',
+  /** WordPress description **/
+  wordpressDescription:
+  'Consider showing excerpts in your post lists (e.g. via the more tag), reducing ' +
+  'the number of posts shown on a given page, breaking your long posts into multiple pages, ' +
+  'or using a plugin to lazy-load comments.',
   /** Used to summarize the total byte size of the page and all its network requests. The `{totalBytes}` placeholder will be replaced with the total byte sizes, shown in kilobytes (e.g. 142 KB) */
   displayValue: 'Total size was {totalBytes, number, bytes}\xa0KB',
 };
@@ -35,6 +40,7 @@ class TotalByteWeight extends ByteEfficiencyAudit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['devtoolsLogs', 'traces'],
     };

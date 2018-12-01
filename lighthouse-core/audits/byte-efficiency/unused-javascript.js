@@ -13,6 +13,11 @@ const UIStrings = {
   title: 'Remove unused JavaScript',
   /** Description of a Lighthouse audit that tells the user *why* they should remove JavaScript that is never needed/evaluated by the browser. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description: 'Remove unused JavaScript to reduce bytes consumed by network activity.',
+  wordpressDescription: 'Consider reducing, or switching, the number of [WordPress plugins](https://wordpress.org/plugins/) ' +
+  'loading unused JavaScript in your page. To identify plugins that are adding extraneous JS, try using running ' +
+  '[code coverage](https://developers.google.com/web/updates/2017/04/devtools-release-notes#coverage) in Chrome DevTools. ' +
+  'You can identify the theme/plugin responsible from the URL of the script. Look out for plugins that have many scripts in the list which have a lot of red in code coverage. ' +
+  'A plugin should only enqueue a script if it is actually used on the page.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -28,6 +33,7 @@ class UnusedJavaScript extends ByteEfficiencyAudit {
       id: 'unused-javascript',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['JsUsage', 'devtoolsLogs', 'traces'],
     };

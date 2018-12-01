@@ -30,6 +30,7 @@ const WASTED_MS_FOR_SCORE_OF_ZERO = 5000;
  * @property {LH.Audit.Details.Opportunity['headings']} headings
  * @property {string} [displayValue]
  * @property {string} [explanation]
+ * @property {string} [secondaryDescription]
  * @property {Array<string>} [warnings]
  */
 

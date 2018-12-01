@@ -162,7 +162,7 @@ async function deploy() {
   return new Promise((resolve, reject) => {
     ghPages.publish(distDir, {
       add: true, // keep existing files
-      dest: 'viewer',
+      dest: 'viewer-wordpress',
       message: `Update viewer to lighthouse@${lighthousePackage.version}`,
     }, err => {
       if (err) return reject(err);

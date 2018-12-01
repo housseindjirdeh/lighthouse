@@ -15,6 +15,10 @@ const UIStrings = {
   description: 'Remove dead rules from stylesheets and defer the loading of CSS not used for ' +
     'above-the-fold content to reduce unnecessary bytes consumed by network activity. ' +
     '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/unused-css).',
+  wordpressDescription: 'Consider reducing, or switching, the number of [WordPress plugins](https://wordpress.org/plugins/) loading unused CSS in your page. ' +
+  'To identify plugins that are adding extraneous CSS, try using running [code coverage](https://developers.google.com/web/updates/2017/04/devtools-release-notes#coverage) ' +
+  'in Chrome DevTools. You can identify the theme/plugin responsible from the URL of the stylesheet. Look out for plugins that have many stylesheets in the list which have a ' +
+  'lot of red in code coverage. A plugin should only enqueue a stylesheet if it is actually used on the page.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -35,6 +39,7 @@ class UnusedCSSRules extends ByteEfficiencyAudit {
       id: 'unused-css-rules',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['CSSUsage', 'URL', 'devtoolsLogs', 'traces'],
     };
