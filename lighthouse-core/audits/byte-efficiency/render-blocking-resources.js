@@ -36,6 +36,10 @@ const UIStrings = {
   description: 'Resources are blocking the first paint of your page. Consider ' +
     'delivering critical JS/CSS inline and deferring all non-critical ' +
     'JS/styles. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/blocking-resources).',
+  wordpressDescription:
+    'There a number of Wordpress plugins that can help you inline non-critical assets or defer less important resources. ' +
+    'Some examples include [WP Rocket](https://wp-rocket.me/) and [AMP](https://wordpress.org/plugins/amp/). ' +
+    'Consider using any that work with your current page.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -70,6 +74,7 @@ class RenderBlockingResources extends Audit {
       title: str_(UIStrings.title),
       scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.wordpressDescription),
       // This audit also looks at CSSUsage but has a graceful fallback if it failed, so do not mark
       // it as a "requiredArtifact".
       // TODO: look into adding an `optionalArtifacts` property that captures this

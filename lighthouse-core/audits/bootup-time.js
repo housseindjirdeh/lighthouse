@@ -21,6 +21,9 @@ const UIStrings = {
   description: 'Consider reducing the time spent parsing, compiling, and executing JS. ' +
     'You may find delivering smaller JS payloads helps with this. [Learn ' +
     'more](https://developers.google.com/web/tools/lighthouse/audits/bootup).',
+  wordpressDescription: 'Consider reducing the number of [Wordpress plugins](https://wordpress.org/plugins/) loading ' +
+    'JavaScript libraries (e.g. jQuery) in your page. Loading too much JavaScript will ' +
+    'delay how soon a user can interact with your site',
   /** Label for the total time column in a data table; entries will be the number of milliseconds spent executing per resource loaded by the page. */
   columnTotal: 'Total',
   /** Label for a time column in a data table; entries will be the number of milliseconds spent evaluating script for every script loaded by the page. */
@@ -44,6 +47,7 @@ class BootupTime extends Audit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['traces'],
     };

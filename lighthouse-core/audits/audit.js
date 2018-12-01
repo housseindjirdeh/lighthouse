@@ -204,6 +204,7 @@ class Audit {
       id: audit.meta.id,
       title: auditTitle,
       description: audit.meta.description,
+      secondaryDescription: audit.meta.secondaryDescription,
 
       score,
       scoreDisplayMode,

@@ -24,6 +24,9 @@ const UIStrings = {
     'Consider lazy-loading offscreen and hidden images after all critical resources have ' +
     'finished loading to lower time to interactive. ' +
     '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/offscreen-images).',
+  wordpressDescription:
+    'Use a suitable Wordpress plugin, such as [Jetpack](https://jetpack.com/) or ' +
+    '[Amp](https://wordpress.org/plugins/amp/), to defer any offscreen images.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -46,6 +49,7 @@ class OffscreenImages extends ByteEfficiencyAudit {
       id: 'offscreen-images',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['ImageUsage', 'ViewportDimensions', 'devtoolsLogs', 'traces'],
     };

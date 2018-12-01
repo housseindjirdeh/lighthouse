@@ -108,12 +108,33 @@ class DOM {
     });
   }
 
-  /**
+  /** TODO(houssein) - fix advice pack plumbing
    * @param {string} text
+   * @param {string} imgSrc
    * @return {Element}
    */
-  convertMarkdownLinkSnippets(text) {
-    const element = this.createElement('span');
+  convertAdvicePackSnippet(text, imgSrc) {
+    const containerElement = this.createElement('div', 'lh-audit__description-pack');
+    const textElement = this.convertMarkdownLinkSnippets(text, 'lh-audit__description-pack-text');
+    const imgElement = this.createElement('img', 'lh-audit__description-pack-img');
+    const imgContainerElement = this.createElement('div', 'lh-audit__description-pack-img-container');
+    
+    imgElement.src = imgSrc;
+    imgContainerElement.appendChild(imgElement);
+
+    containerElement.appendChild(imgContainerElement);
+    containerElement.appendChild(textElement);
+
+    return containerElement;
+  }
+
+  /**
+   * @param {string} text
+   * @param {string} className
+   * @return {Element}
+   */
+  convertMarkdownLinkSnippets(text, className = '') {
+    const element = this.createElement('span', className);
 
     // Split on markdown links (e.g. [some link](https://...)).
     const parts = text.split(/\[([^\]]*?)\]\((https?:\/\/.*?)\)/g);

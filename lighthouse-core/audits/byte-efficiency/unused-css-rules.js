@@ -15,6 +15,8 @@ const UIStrings = {
   description: 'Remove unused rules from stylesheets to reduce unnecessary ' +
     'bytes consumed by network activity. ' +
     '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/unused-css).',
+  wordpressDescription: 'Consider reducing, or switching, the number of [Wordpress plugins](https://wordpress.org/plugins/) ' +
+    'loading unused CSS in your page.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -33,6 +35,7 @@ class UnusedCSSRules extends ByteEfficiencyAudit {
       id: 'unused-css-rules',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['CSSUsage', 'URL', 'devtoolsLogs', 'traces'],
     };

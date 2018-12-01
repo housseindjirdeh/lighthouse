@@ -26,6 +26,8 @@ const UIStrings = {
   'Serve images that are appropriately-sized to save cellular data ' +
   'and improve load time. ' +
   '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/oversized-images).',
+  wordpressDescription: 'Upload images directly through the [WordPress dashboard](https://en.support.wordpress.com/images/adding-images-to-posts-or-pages/) ' +
+  'to ensure that they are always appropriately-sized to minimize the amount of data used.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);

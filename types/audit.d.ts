@@ -53,6 +53,8 @@ declare global {
       failureTitle?: string;
       /** Explanation of why the user should care about the audit. */
       description: string;
+      /** TODO(houssein): fix advice pack stuffs */
+      secondaryDescription?: string;
       /** A list of the members of LH.Artifacts that must be present for the audit to execute. */
       requiredArtifacts: Array<keyof Artifacts>;
       /** A string identifying how the score should be interpreted for display. */
@@ -120,6 +122,7 @@ declare global {
       rawValue: boolean | number | null;
       displayValue?: DisplayValue;
       explanation?: string;
+      secondaryDescription?: string;
       errorMessage?: string;
       warnings?: string[];
       score?: number;
@@ -154,6 +157,8 @@ declare global {
       id: string;
       /** A more detailed description that describes why the audit is important and links to Lighthouse documentation on the audit; markdown links supported. */
       description: string;
+      /** TODO(houssein): fix advice pack plumbing */
+      secondaryDescription?: string;
       // TODO(bckenny): define details
       details?: any;
     }

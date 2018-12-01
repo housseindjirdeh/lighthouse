@@ -687,6 +687,7 @@
       "id": "bootup-time",
       "title": "JavaScript execution time",
       "description": "Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/bootup).",
+      "secondaryDescription": "Consider reducing the number of [Wordpress plugins](https://wordpress.org/plugins/) loading JavaScript libraries (e.g. jQuery) in your page. Loading too much JavaScript will delay how soon a user can interact with your site",
       "score": 0.92,
       "scoreDisplayMode": "numeric",
       "rawValue": 1150.932,
@@ -1861,6 +1862,7 @@
       "id": "offscreen-images",
       "title": "Defer offscreen images",
       "description": "Consider lazy-loading offscreen and hidden images after all critical resources have finished loading to lower time to interactive. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/offscreen-images).",
+      "secondaryDescription": "Use a suitable Wordpress plugin, such as [Jetpack](https://jetpack.com/) or [Amp](https://wordpress.org/plugins/amp/), to defer any offscreen images.",
       "score": 1,
       "scoreDisplayMode": "numeric",
       "rawValue": 0,
@@ -1878,6 +1880,7 @@
       "id": "render-blocking-resources",
       "title": "Eliminate render-blocking resources",
       "description": "Resources are blocking the first paint of your page. Consider delivering critical JS/CSS inline and deferring all non-critical JS/styles. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/blocking-resources).",
+      "secondaryDescription": "There a number of Wordpress plugins that can help you inline non-critical assets or defer less important resources. Some examples include [WP Rocket](https://wp-rocket.me/) and [AMP](https://wordpress.org/plugins/amp/). Consider using any that work with your current page.",
       "score": 0.46,
       "scoreDisplayMode": "numeric",
       "rawValue": 1129,
@@ -1935,6 +1938,7 @@
       "id": "unminified-css",
       "title": "Minify CSS",
       "description": "Minifying CSS files can reduce network payload sizes. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/minify-css).",
+      "secondaryDescription": "A number of Wordpress plugins, such as [Autoptimize](https://wordpress.org/plugins/autoptimize/), can speed up your site by minifying and compressing payloads.",
       "score": 1,
       "scoreDisplayMode": "numeric",
       "rawValue": 0,
@@ -1951,6 +1955,7 @@
       "id": "unminified-javascript",
       "title": "Minify JavaScript",
       "description": "Minifying JavaScript files can reduce payload sizes and script parse time. [Learn more](https://developers.google.com/speed/docs/insights/MinifyResources).",
+      "secondaryDescription": "A number of Wordpress plugins, such as [Autoptimize](https://wordpress.org/plugins/autoptimize/), can speed up your site by minifying and compressing payloads.",
       "score": 0.88,
       "scoreDisplayMode": "numeric",
       "rawValue": 150,
@@ -1991,6 +1996,7 @@
       "id": "unused-css-rules",
       "title": "Defer unused CSS",
       "description": "Remove unused rules from stylesheets to reduce unnecessary bytes consumed by network activity. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/unused-css).",
+      "secondaryDescription": "Consider reducing, or switching, the number of [Wordpress plugins](https://wordpress.org/plugins/) loading unused CSS in your page.",
       "score": 1,
       "scoreDisplayMode": "numeric",
       "rawValue": 0,
@@ -2053,6 +2059,7 @@
       "id": "uses-optimized-images",
       "title": "Efficiently encode images",
       "description": "Optimized images load faster and consume less cellular data. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/optimize-images).",
+      "secondaryDescription": "Consider using a Wordpress plugin, such as [Jetpack](https://jetpack.com/) or [Cloudinary](https://wordpress.org/plugins/cloudinary-image-management-and-manipulation-in-the-cloud-cdn/) to automate the process of optimizing all the images on your site.",
       "score": 1,
       "scoreDisplayMode": "numeric",
       "rawValue": 0,
@@ -4488,6 +4495,9 @@
       "lighthouse-core/audits/bootup-time.js | description": [
         "audits[bootup-time].description"
       ],
+      "lighthouse-core/audits/bootup-time.js | wordpressDescription": [
+        "audits[bootup-time].secondaryDescription"
+      ],
       "lighthouse-core/lib/i18n/i18n.js | columnURL": [
         "audits[bootup-time].details.headings[0].text",
         "audits[uses-long-cache-ttl].details.headings[0].text",
@@ -4786,11 +4796,17 @@
       "lighthouse-core/audits/byte-efficiency/offscreen-images.js | description": [
         "audits[offscreen-images].description"
       ],
+      "lighthouse-core/audits/byte-efficiency/offscreen-images.js | wordpressDescription": [
+        "audits[offscreen-images].secondaryDescription"
+      ],
       "lighthouse-core/audits/byte-efficiency/render-blocking-resources.js | title": [
         "audits[render-blocking-resources].title"
       ],
       "lighthouse-core/audits/byte-efficiency/render-blocking-resources.js | description": [
         "audits[render-blocking-resources].description"
+      ],
+      "lighthouse-core/audits/byte-efficiency/render-blocking-resources.js | wordpressDescription": [
+        "audits[render-blocking-resources].secondaryDescription"
       ],
       "lighthouse-core/lib/i18n/i18n.js | displayValueMsSavings": [
         {
@@ -4809,11 +4825,17 @@
       "lighthouse-core/audits/byte-efficiency/unminified-css.js | description": [
         "audits[unminified-css].description"
       ],
+      "lighthouse-core/audits/byte-efficiency/unminified-css.js | wordpressDescription": [
+        "audits[unminified-css].secondaryDescription"
+      ],
       "lighthouse-core/audits/byte-efficiency/unminified-javascript.js | title": [
         "audits[unminified-javascript].title"
       ],
       "lighthouse-core/audits/byte-efficiency/unminified-javascript.js | description": [
         "audits[unminified-javascript].description"
+      ],
+      "lighthouse-core/audits/byte-efficiency/unminified-javascript.js | wordpressDescription": [
+        "audits[unminified-javascript].secondaryDescription"
       ],
       "lighthouse-core/lib/i18n/i18n.js | displayValueByteSavings": [
         {
@@ -4846,6 +4868,9 @@
       "lighthouse-core/audits/byte-efficiency/unused-css-rules.js | description": [
         "audits[unused-css-rules].description"
       ],
+      "lighthouse-core/audits/byte-efficiency/unused-css-rules.js | wordpressDescription": [
+        "audits[unused-css-rules].secondaryDescription"
+      ],
       "lighthouse-core/audits/byte-efficiency/uses-webp-images.js | title": [
         "audits[uses-webp-images].title"
       ],
@@ -4857,6 +4882,9 @@
       ],
       "lighthouse-core/audits/byte-efficiency/uses-optimized-images.js | description": [
         "audits[uses-optimized-images].description"
+      ],
+      "lighthouse-core/audits/byte-efficiency/uses-optimized-images.js | wordpressDescription": [
+        "audits[uses-optimized-images].secondaryDescription"
       ],
       "lighthouse-core/audits/byte-efficiency/uses-text-compression.js | title": [
         "audits[uses-text-compression].title"

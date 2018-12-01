@@ -451,6 +451,10 @@
     "message": "JavaScript execution time",
     "description": "Title of a diagnostic audit that provides detail on the time spent executing javascript files during the load. This descriptive title is shown to users when the amount is acceptable and no user action is required."
   },
+  "lighthouse-core/audits/bootup-time.js | wordpressDescription": {
+    "message": "Consider reducing the number of [Wordpress plugins](https://wordpress.org/plugins/) loading JavaScript libraries (e.g. jQuery) in your page. Loading too much JavaScript will delay how soon a user can interact with your site",
+    "description": ""
+  },
   "lighthouse-core/audits/byte-efficiency/efficient-animated-content.js | description": {
     "message": "Large GIFs are inefficient for delivering animated content. Consider using MPEG4/WebM videos for animations and PNG/WebP for static images instead of GIF to save network bytes. [Learn more](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/replace-animated-gifs-with-video/)",
     "description": "Description of a Lighthouse audit that tells the user *why* they should use video instead of GIF format for delivering animated content. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation."
@@ -467,6 +471,10 @@
     "message": "Defer offscreen images",
     "description": "Imperative title of a Lighthouse audit that tells the user to defer loading offscreen images. Offscreen images are images located outside of the visible browser viewport. As they are unseen by the user and slow down page load, they should be loaded later, closer to when the user is going to see them. This is displayed in a list of audit titles that Lighthouse generates."
   },
+  "lighthouse-core/audits/byte-efficiency/offscreen-images.js | wordpressDescription": {
+    "message": "Use a suitable Wordpress plugin, such as [Jetpack](https://jetpack.com/) or [Amp](https://wordpress.org/plugins/amp/), to defer any offscreen images.",
+    "description": ""
+  },
   "lighthouse-core/audits/byte-efficiency/render-blocking-resources.js | description": {
     "message": "Resources are blocking the first paint of your page. Consider delivering critical JS/CSS inline and deferring all non-critical JS/styles. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/blocking-resources).",
     "description": "Description of a Lighthouse audit that tells the user *why* they should reduce or remove network resources that block the initial render of the page. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation."
@@ -474,6 +482,10 @@
   "lighthouse-core/audits/byte-efficiency/render-blocking-resources.js | title": {
     "message": "Eliminate render-blocking resources",
     "description": "Imperative title of a Lighthouse audit that tells the user to reduce or remove network resources that block the initial render of the page. This is displayed in a list of audit titles that Lighthouse generates."
+  },
+  "lighthouse-core/audits/byte-efficiency/render-blocking-resources.js | wordpressDescription": {
+    "message": "There a number of Wordpress plugins that can help you inline non-critical assets or defer less important resources. Some examples include [WP Rocket](https://wp-rocket.me/) and [AMP](https://wordpress.org/plugins/amp/). Consider using any that work with your current page.",
+    "description": ""
   },
   "lighthouse-core/audits/byte-efficiency/total-byte-weight.js | description": {
     "message": "Large network payloads cost users real money and are highly correlated with long load times. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/network-payloads).",
@@ -499,6 +511,10 @@
     "message": "Minify CSS",
     "description": "Imperative title of a Lighthouse audit that tells the user to minify (remove whitespace) the page's CSS code. This is displayed in a list of audit titles that Lighthouse generates."
   },
+  "lighthouse-core/audits/byte-efficiency/unminified-css.js | wordpressDescription": {
+    "message": "A number of Wordpress plugins, such as [Autoptimize](https://wordpress.org/plugins/autoptimize/), can speed up your site by minifying and compressing payloads.",
+    "description": ""
+  },
   "lighthouse-core/audits/byte-efficiency/unminified-javascript.js | description": {
     "message": "Minifying JavaScript files can reduce payload sizes and script parse time. [Learn more](https://developers.google.com/speed/docs/insights/MinifyResources).",
     "description": "Description of a Lighthouse audit that tells the user *why* they should minify the page’s JS code to reduce file size. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation."
@@ -506,6 +522,10 @@
   "lighthouse-core/audits/byte-efficiency/unminified-javascript.js | title": {
     "message": "Minify JavaScript",
     "description": "Imperative title of a Lighthouse audit that tells the user to minify the page’s JS code to reduce file size. This is displayed in a list of audit titles that Lighthouse generates."
+  },
+  "lighthouse-core/audits/byte-efficiency/unminified-javascript.js | wordpressDescription": {
+    "message": "A number of Wordpress plugins, such as [Autoptimize](https://wordpress.org/plugins/autoptimize/), can speed up your site by minifying and compressing payloads.",
+    "description": ""
   },
   "lighthouse-core/audits/byte-efficiency/unused-css-rules.js | description": {
     "message": "Remove unused rules from stylesheets to reduce unnecessary bytes consumed by network activity. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/unused-css).",
@@ -515,6 +535,10 @@
     "message": "Defer unused CSS",
     "description": "Imperative title of a Lighthouse audit that tells the user to remove content from their CSS that isn’t needed immediately and instead load that content at a later time. This is displayed in a list of audit titles that Lighthouse generates."
   },
+  "lighthouse-core/audits/byte-efficiency/unused-css-rules.js | wordpressDescription": {
+    "message": "Consider reducing, or switching, the number of [Wordpress plugins](https://wordpress.org/plugins/) loading unused CSS in your page.",
+    "description": ""
+  },
   "lighthouse-core/audits/byte-efficiency/unused-javascript.js | description": {
     "message": "Remove unused JavaScript to reduce bytes consumed by network activity.",
     "description": "Description of a Lighthouse audit that tells the user *why* they should remove JavaScript that is never needed/evaluated by the browser. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation."
@@ -522,6 +546,10 @@
   "lighthouse-core/audits/byte-efficiency/unused-javascript.js | title": {
     "message": "Remove unused JavaScript",
     "description": "Imperative title of a Lighthouse audit that tells the user to remove JavaScript that is never evaluated during page load. This is displayed in a list of audit titles that Lighthouse generates."
+  },
+  "lighthouse-core/audits/byte-efficiency/unused-javascript.js | wordpressDescription": {
+    "message": "Consider reducing, or switching, the number of [Wordpress plugins](https://wordpress.org/plugins/) loading unused JavaScript in your page.",
+    "description": ""
   },
   "lighthouse-core/audits/byte-efficiency/uses-long-cache-ttl.js | description": {
     "message": "A long cache lifetime can speed up repeat visits to your page. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/cache-policy).",
@@ -547,6 +575,10 @@
     "message": "Efficiently encode images",
     "description": "Imperative title of a Lighthouse audit that tells the user to encode images with optimization (better compression). This is displayed in a list of audit titles that Lighthouse generates."
   },
+  "lighthouse-core/audits/byte-efficiency/uses-optimized-images.js | wordpressDescription": {
+    "message": "Consider using a Wordpress plugin, such as [Jetpack](https://jetpack.com/) or [Cloudinary](https://wordpress.org/plugins/cloudinary-image-management-and-manipulation-in-the-cloud-cdn/) to automate the process of optimizing all the images on your site.",
+    "description": ""
+  },
   "lighthouse-core/audits/byte-efficiency/uses-responsive-images.js | description": {
     "message": "Serve images that are appropriately-sized to save cellular data and improve load time. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/oversized-images).",
     "description": "Description of a Lighthouse audit that tells the user *why* they need to serve appropriately sized images. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation."
@@ -554,6 +586,10 @@
   "lighthouse-core/audits/byte-efficiency/uses-responsive-images.js | title": {
     "message": "Properly size images",
     "description": "Imperative title of a Lighthouse audit that tells the user to resize images to match the display dimensions. This is displayed in a list of audit titles that Lighthouse generates."
+  },
+  "lighthouse-core/audits/byte-efficiency/uses-responsive-images.js | wordpressDescription": {
+    "message": "Upload images directly through the [WordPress dashboard](https://en.support.wordpress.com/images/adding-images-to-posts-or-pages/) to ensure that they are always appropriately-sized to minimize the amount of data used.",
+    "description": ""
   },
   "lighthouse-core/audits/byte-efficiency/uses-text-compression.js | description": {
     "message": "Text-based resources should be served with compression (gzip, deflate or brotli) to minimize total network bytes. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/text-compression).",
