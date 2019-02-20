@@ -18,8 +18,7 @@ const UIStrings = {
   /** Description of a Lighthouse audit that tells the user *why* they should use newer and more efficient image formats. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description: 'Image formats like JPEG 2000, JPEG XR, and WebP often provide better ' +
     'compression than PNG or JPEG, which means faster downloads and less data consumption. ' +
-    '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/webp).',
-  wordpressDescription: 'Consider using a plugin/service that will automatically convert your uploaded images to the optimal formats.',
+    '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/webp).'
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -35,7 +34,6 @@ class UsesWebPImages extends ByteEfficiencyAudit {
       id: 'uses-webp-images',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
-      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['OptimizedImages', 'devtoolsLogs', 'traces', 'URL', 'ImageElements'],
     };

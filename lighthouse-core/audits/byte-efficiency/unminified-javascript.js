@@ -15,9 +15,7 @@ const UIStrings = {
   /** Description of a Lighthouse audit that tells the user *why* they should minify the page’s JS code to reduce file size. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description: 'Minifying JavaScript files can reduce payload sizes and script parse time. ' +
     '[Learn more](https://developers.google.com/speed/docs/insights/MinifyResources).',
-  wordpressDescription:
-  'A number of WordPress plugins can speed up your site by concatenating, minifying, and compressing your scripts. ' +
-  'You may also want to use a build process to do this minification up-front if possible',
+  reactDescription: 'If your build system minifies your CSS files automatically, ensure that you are deploying the production build of your application. You can check this with the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) extension. [Learn more](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build).'
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -44,7 +42,7 @@ class UnminifiedJavaScript extends ByteEfficiencyAudit {
       id: 'unminified-javascript',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
-      secondaryDescription: str_(UIStrings.wordpressDescription),
+      secondaryDescription: str_(UIStrings.reactDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['ScriptElements', 'devtoolsLogs', 'traces'],
     };

@@ -32,6 +32,7 @@ const UIStrings = {
     'children/parent element. A large DOM can increase memory usage, cause longer ' +
     '[style calculations](https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations), ' +
     'and produce costly [layout reflows](https://developers.google.com/speed/articles/reflow). [Learn more](https://developers.google.com/web/tools/lighthouse/audits/dom-size).',
+  reactDescription: 'If you are rendering very large lists, consider using a “windowing” library to minimize the number of DOM nodes created. [Learn more](https://reactjs.org/docs/optimizing-performance.html#virtualize-long-lists).',
   /** Table column header for the type of statistic. These statistics describe how big the DOM is (count of DOM elements, children, depth). */
   columnStatistic: 'Statistic',
   /** Table column header for the DOM element. Each DOM element is described with its HTML representation. */
@@ -68,6 +69,7 @@ class DOMSize extends Audit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.reactDescription),
       scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['DOMStats'],
     };

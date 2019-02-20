@@ -26,9 +26,6 @@ const UIStrings = {
   'Serve images that are appropriately-sized to save cellular data ' +
   'and improve load time. ' +
   '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/oversized-images).',
-  wordpressDescription: 'Upload images directly through the media library to ensure that the required image sizes are available, ' +
-  'and then insert them from the media library or use the image widget to ensure the optimal image sizes are used (including those for the responsive breakpoints). ' +
-  'Use the "wp_get_attachment_image()" function to construct an img tag.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -44,7 +41,6 @@ class UsesResponsiveImages extends ByteEfficiencyAudit {
       id: 'uses-responsive-images',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
-      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['ImageElements', 'ViewportDimensions', 'devtoolsLogs', 'traces'],
     };

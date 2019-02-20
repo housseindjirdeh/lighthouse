@@ -16,6 +16,7 @@ const UIStrings = {
   description: 'Consider instrumenting your app with the User Timing API to measure your ' +
       'app\'s real-world performance during key user experiences. ' +
       '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/user-timing).',
+  reactDescription: 'Use the React DevTools Profiler, which makes use of the Profiler API, to measure the rendering performance of your components. [Learn more](https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html).',
   /** [ICU Syntax] Label for an audit identifying the number of User Timing timestamps present in the page. */
   displayValue: `{itemCount, plural,
     =1 {1 user timing}
@@ -43,6 +44,7 @@ class UserTimings extends Audit {
       id: 'user-timings',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.reactDescription),
       scoreDisplayMode: Audit.SCORING_MODES.INFORMATIVE,
       requiredArtifacts: ['traces'],
     };

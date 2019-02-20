@@ -20,10 +20,8 @@ const UIStrings = {
   'long load times. [Learn ' +
   'more](https://developers.google.com/web/tools/lighthouse/audits/network-payloads).',
   /** WordPress description **/
-  wordpressDescription:
-  'Consider showing excerpts in your post lists (e.g. via the more tag), reducing ' +
-  'the number of posts shown on a given page, breaking your long posts into multiple pages, ' +
-  'or using a plugin to lazy-load comments.',
+  reactDescription:
+  'Consider splitting your JavaScript bundle with [React.lazy()](https://reactjs.org/docs/code-splitting.html#reactlazy) and caching resources with a service worker. Ensure a [minified, production build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build) of your application is also deployed.',
   /** Used to summarize the total byte size of the page and all its network requests. The `{totalBytes}` placeholder will be replaced with the total byte sizes, shown in kilobytes (e.g. 142 KB) */
   displayValue: 'Total size was {totalBytes, number, bytes}\xa0KB',
 };
@@ -40,7 +38,7 @@ class TotalByteWeight extends ByteEfficiencyAudit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
-      secondaryDescription: str_(UIStrings.wordpressDescription),
+      secondaryDescription: str_(UIStrings.reactDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['devtoolsLogs', 'traces'],
     };

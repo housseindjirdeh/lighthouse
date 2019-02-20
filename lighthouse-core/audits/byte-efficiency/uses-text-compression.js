@@ -20,7 +20,6 @@ const UIStrings = {
   description: 'Text-based resources should be served with compression (gzip, deflate or' +
     ' brotli) to minimize total network bytes.' +
     ' [Learn more](https://developers.google.com/web/tools/lighthouse/audits/text-compression).',
-  wordpressDescription: 'You can enable this in your web server configuration.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -37,7 +36,6 @@ class ResponsesAreCompressed extends ByteEfficiencyAudit {
       id: 'uses-text-compression',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
-      secondaryDescription: str_(UIStrings.wordpressDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['ResponseCompression', 'devtoolsLogs', 'traces'],
     };
