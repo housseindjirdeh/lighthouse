@@ -1,5 +1,6 @@
-import { Pack } from './pack';
+import { Pack as PackInterface } from './pack';
 
-declare const stackPacks: Pack[];
+declare const stackPacks: PackInterface[];
+
 export = stackPacks;
-
+export const Pack: PackInterface;

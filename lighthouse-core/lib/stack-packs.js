@@ -22,6 +22,7 @@ function getStackPacks(artifacts) {
   const packs = [];
 
   artifacts.Stacks.forEach(pageStack => {
+    /** @type {import('@lighthouse/stack-packs').Pack|undefined} */
     let matchedPack;
     stackPacksToInclude.some(stackPackToIncl => {
       if (!stackPackToIncl.requiredStacks.includes(`${pageStack.detector}:${pageStack.id}`)) {
