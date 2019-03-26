@@ -7,9 +7,11 @@
 
 const stackPacks = require('@lighthouse/stack-packs');
 
-const requiredStacks = new Map([
-  ['wordpress', ['js:wordpress']]
-]);
+const stackPacksToInclude = [{
+  packId: 'wordpress',
+  npmOrIconName: 'wordpress',
+  requiredStacks: ['js:wordpress']
+}];
 
 /**
  * @param {LH.Artifacts} artifacts
@@ -20,20 +22,23 @@ function getStackPacks(artifacts) {
   const packs = [];
 
   artifacts.Stacks.forEach(pageStack => {
-    let foundPack;
-    for (const [packId, requiredTechnologies] of requiredStacks) {
-      if (requiredTechnologies.includes(`${pageStack.detector}:${pageStack.id}`)) {
-        foundPack = stackPacks.find(pack => pack.id === packId);
-        break;
+    let matchedPack;
+    stackPacksToInclude.some(stackPackToIncl => {
+      if (!stackPackToIncl.requiredStacks.includes(`${pageStack.detector}:${pageStack.id}`)) {
+        return false;
       }
-    }
 
-    if (foundPack) {
+      matchedPack = stackPacks.find(pack => pack.id === stackPackToIncl.npmOrIconName);
+
+      return !!matchedPack;
+    });
+
+    if (matchedPack) {
       packs.push({
-        id: foundPack.id,
-        title: foundPack.title,
-        iconDataURL: foundPack.iconDataURL,
-        descriptions: foundPack.descriptions,
+        id: matchedPack.id,
+        title: matchedPack.title,
+        iconDataURL: matchedPack.iconDataURL,
+        descriptions: matchedPack.descriptions,
       });
     }
   });

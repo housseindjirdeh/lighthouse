@@ -23,7 +23,7 @@ class Stacks extends JSLibraries {
 
     return libs.map(lib => ({
       detector: 'js',
-      id: lib.npmPkgName || lib.name.toLowerCase(),
+      id: lib.npmPkgName || lib.iconName,
       name: lib.name,
       version: lib.version,
       npm: lib.npmPkgName,
