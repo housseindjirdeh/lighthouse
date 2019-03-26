@@ -45,6 +45,11 @@ declare global {
     prepareLabData: typeof _prepareLabData;
   }
 
+  interface StackPackRef {
+    icon: string;
+    description: string,
+  }
+
   module LH {
     // During report generation, the LHR object is transformed a bit for convenience
     // Primarily, the auditResult is added as .result onto the auditRef.
@@ -58,7 +63,8 @@ declare global {
         auditRefs: Array<AuditRef>
       }
       export interface AuditRef extends Result.AuditRef {
-        result: Audit.Result
+        result: Audit.Result & { stackPacks?: StackPackRef[] }>;
+
       }
     }
   }

@@ -27,7 +27,7 @@ declare global {
       benchmarkIndex: number;
     }
 
-    export interface StackPacks {
+    export interface StackPack {
       id: string;
       title: string;
       iconDataURL: string;
@@ -70,7 +70,7 @@ declare global {
       /** The record of all formatted string locations in the LHR and their corresponding source values. */
       i18n: {rendererFormattedStrings: I18NRendererStrings, icuMessagePaths: I18NMessages};
       /** An object containing the result of all stackpacks */
-      stackPacks: StackPacks[];
+      stackPacks: StackPack[];
     }
 
     // Result namespace

@@ -15,10 +15,10 @@ const stackPacksToInclude = [{
 
 /**
  * @param {LH.Artifacts} artifacts
- * @return {Array<LH.StackPacks>}
+ * @return {Array<LH.StackPack>}
  */
 function getStackPacks(artifacts) {
-  /** @type {Array<LH.StackPacks>} */
+  /** @type {Array<LH.StackPack>} */
   const packs = [];
 
   artifacts.Stacks.forEach(pageStack => {

@@ -72,26 +72,24 @@ class Util {
       }
     }
 
-    if (clone.stackPacks) {
-      for (const audit of Object.values(clone.audits)) {
-        audit.stackPacks = {};
-        clone.stackPacks.forEach(pack => {
-          // if advice exist for this audit
-          if (pack.descriptions[audit.id]) {
-            audit.stackPacks[pack.id] = {
-              icon: pack.iconDataURL,
-              description: pack.descriptions[audit.id],
-            };
-          }
-        });
-      }
-    }
-
     // For convenience, smoosh all AuditResults into their auditDfn (which has just weight & group)
     for (const category of clone.reportCategories) {
       category.auditRefs.forEach(auditMeta => {
         const result = clone.audits[auditMeta.id];
         auditMeta.result = result;
+
+        // attach the stackpacks to the auditRef object
+        if (clone.stackPacks) {
+          clone.stackPacks.forEach(pack => {
+            if (pack.descriptions[auditMeta.id]) {
+              auditMeta.result.stackPacks = auditMeta.result.stackPacks || [];
+              auditMeta.result.stackPacks.push({
+                icon: pack.iconDataURL,
+                description: pack.descriptions[auditMeta.id],
+              });
+            }
+          });
+        }
       });
     }
 
