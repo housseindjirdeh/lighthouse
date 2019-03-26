@@ -2297,11 +2297,13 @@
     },
     "totalDOMNodes": 53
   },
-  "JSLibraries": [
+  "Stacks": [
     {
+      "detector": "js",
+      "id": "jquery",
       "name": "jQuery",
       "version": "2.1.1",
-      "npmPkgName": "jquery"
+      "npm": "jquery"
     }
   ],
   "OptimizedImages": [

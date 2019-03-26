@@ -83,8 +83,6 @@ declare global {
       HTTPRedirect: {value: boolean};
       /** Information on size and loading for all the images in the page. Natural size information for `picture` and CSS images is only available if the image was one of the largest 50 images. */
       ImageElements: Artifacts.ImageElement[];
-      /** Information on JS libraries and versions used by the page. */
-      JSLibraries: {name: string, version: string, npmPkgName: string, iconName: string}[];
       /** Information on Detected Stacks used by the page. */
       Stacks: Artifacts.DetectedStack[];
       /** JS coverage information for code used during page load. */

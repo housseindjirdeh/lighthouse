@@ -36,7 +36,7 @@ class NoVulnerableLibrariesAudit extends Audit {
       description: 'Some third-party scripts may contain known security vulnerabilities ' +
         'that are easily identified and exploited by attackers. ' +
         '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/vulnerabilities).',
-      requiredArtifacts: ['JSLibraries'],
+      requiredArtifacts: ['Stacks'],
     };
   }
 
@@ -78,25 +78,25 @@ class NoVulnerableLibrariesAudit extends Audit {
 
   /**
    * @param {string} normalizedVersion
-   * @param {{name: string, version: string, npmPkgName: string|undefined}} lib
+   * @param {{name: string, version: string, npm: string|undefined}} lib
    * @return {Array<Vulnerability>}
    */
   static getVulnerabilities(normalizedVersion, lib) {
     const snykDB = NoVulnerableLibrariesAudit.snykDB;
-    if (!lib.npmPkgName || !snykDB.npm[lib.npmPkgName]) {
+    if (!lib.npm || !snykDB.npm[lib.npm]) {
       return [];
     }
 
     try {
       semver.satisfies(normalizedVersion, '*');
     } catch (err) {
-      err.pkgName = lib.npmPkgName;
+      err.pkgName = lib.npm;
       // Report the failure and skip this library if the version was ill-specified
       Sentry.captureException(err, {level: 'warning'});
       return [];
     }
 
-    const snykInfo = snykDB.npm[lib.npmPkgName];
+    const snykInfo = snykDB.npm[lib.npm];
     const vulns = snykInfo
       .filter(vuln => semver.satisfies(normalizedVersion, vuln.semver.vulnerable[0]))
       // valid vulnerability
@@ -127,7 +127,7 @@ class NoVulnerableLibrariesAudit extends Audit {
    * @return {LH.Audit.Product}
    */
   static audit(artifacts) {
-    const foundLibraries = artifacts.JSLibraries;
+    const foundLibraries = artifacts.Stacks.filter(stack => stack.detector === 'js');
     if (!foundLibraries.length) {
       return {
         rawValue: true,
@@ -153,7 +153,7 @@ class NoVulnerableLibrariesAudit extends Audit {
           vulnCount,
           detectedLib: {
             text: lib.name + '@' + version,
-            url: `https://snyk.io/vuln/npm:${lib.npmPkgName}?lh=${version}&utm_source=lighthouse&utm_medium=ref&utm_campaign=audit`,
+            url: `https://snyk.io/vuln/npm:${lib.npm}?lh=${version}&utm_source=lighthouse&utm_medium=ref&utm_campaign=audit`,
             type: 'link',
           },
         });
@@ -161,7 +161,7 @@ class NoVulnerableLibrariesAudit extends Audit {
 
       return {
         name: lib.name,
-        npmPkgName: lib.npmPkgName,
+        npmPkgName: lib.npm,
         version,
         vulns,
         highestSeverity,

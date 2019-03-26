@@ -111,7 +111,6 @@ const defaultConfig = {
       'dobetterweb/appcache',
       'dobetterweb/doctype',
       'dobetterweb/domstats',
-      'dobetterweb/js-libraries',
       'dobetterweb/stacks',
       'dobetterweb/optimized-images',
       'dobetterweb/password-inputs-with-prevented-paste',
