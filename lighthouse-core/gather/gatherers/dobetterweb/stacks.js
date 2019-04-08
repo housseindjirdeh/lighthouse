@@ -16,13 +16,15 @@
 const Gatherer = require('../gatherer');
 const fs = require('fs');
 const libDetectorSource = fs.readFileSync(
-  require.resolve('js-library-detector/library/libraries.js'), 'utf8');
+  require.resolve('js-library-detector/library/libraries.js'),
+  'utf8'
+);
 
 /**
  * @typedef JSLibrary
  * @property {string} name
  * @property {string} version
- * @property {string} npmPkgName
+ * @property {string} npm
  * @property {string} iconName
  */
 
@@ -37,19 +39,22 @@ function detectLibraries() {
   // d41d8cd98f00b204e9800998ecf8427e_ is a consistent prefix used by the detect libraries
   // see https://github.com/HTTPArchive/httparchive/issues/77#issuecomment-291320900
   // @ts-ignore - injected libDetectorSource var
-  Object.entries(d41d8cd98f00b204e9800998ecf8427e_LibraryDetectorTests).forEach(async ([name, lib]) => { // eslint-disable-line max-len
-    try {
-      const result = await lib.test(window);
-      if (result) {
-        libraries.push({
-          name: name,
-          version: result.version,
-          npmPkgName: lib.npm,
-          iconName: lib.icon,
-        });
-      }
-    } catch (e) {}
-  });
+  Object.entries(d41d8cd98f00b204e9800998ecf8427e_LibraryDetectorTests).forEach(
+    async ([name, lib]) => {
+      // eslint-disable-line max-len
+      try {
+        const result = await lib.test(window);
+        if (result) {
+          libraries.push({
+            name: name,
+            version: result.version,
+            npm: lib.npm,
+            iconName: lib.icon,
+          });
+        }
+      } catch (e) {}
+    }
+  );
 
   return libraries;
 }
@@ -59,21 +64,22 @@ class Stacks extends Gatherer {
    * @param {LH.Gatherer.PassContext} passContext
    * @return {Promise<LH.Artifacts['Stacks']>}
    */
-  // @ts-ignore
   async afterPass(passContext) {
     const expression = `(function () {
       ${libDetectorSource};
       return (${detectLibraries.toString()}());
     })()`;
 
-    const jsLibraries = /** @type {JSLibrary[]} */ (await passContext.driver.evaluateAsync(expression));
+    const jsLibraries = /** @type {JSLibrary[]} */ (await passContext.driver.evaluateAsync(
+      expression
+    ));
 
     return jsLibraries.map(lib => ({
       detector: 'js',
-      id: lib.npmPkgName || lib.iconName,
+      id: lib.npm || lib.iconName,
       name: lib.name,
       version: lib.version,
-      npm: lib.npmPkgName,
+      npm: lib.npm,
     }));
   }
 }
