@@ -9,8 +9,8 @@ const stackPacks = require('@lighthouse/stack-packs');
 
 const stackPacksToInclude = [{
   packId: 'wordpress',
-  npmOrIconName: 'wordpress',
-  requiredStacks: ['js:wordpress']
+  detectedId: 'wordpress',
+  requiredStacks: ['js:wordpress'],
 }];
 
 /**
@@ -29,7 +29,7 @@ function getStackPacks(artifacts) {
         return false;
       }
 
-      matchedPack = stackPacks.find(pack => pack.id === stackPackToIncl.npmOrIconName);
+      matchedPack = stackPacks.find(pack => pack.id === stackPackToIncl.detectedId);
 
       return !!matchedPack;
     });
