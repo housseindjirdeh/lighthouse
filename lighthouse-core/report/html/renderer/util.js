@@ -84,7 +84,8 @@ class Util {
             if (pack.descriptions[auditMeta.id]) {
               auditMeta.result.stackPacks = auditMeta.result.stackPacks || [];
               auditMeta.result.stackPacks.push({
-                icon: pack.iconDataURL,
+                title: pack.title,
+                iconDataURL: pack.iconDataURL,
                 description: pack.descriptions[auditMeta.id],
               });
             }

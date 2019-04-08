@@ -46,8 +46,12 @@ declare global {
   }
 
   interface StackPackRef {
-    icon: string;
-    description: string,
+    /** Title of the stackpack, used as an alt text */
+    title: string;
+    /** Base64 url of the current stackpack */
+    iconDataURL: string;
+    /** Description of the current audit of the stackpack */
+    description: string;
   }
 
   module LH {
@@ -63,8 +67,7 @@ declare global {
         auditRefs: Array<AuditRef>
       }
       export interface AuditRef extends Result.AuditRef {
-        result: Audit.Result & { stackPacks?: StackPackRef[] }>;
-
+        result: Audit.Result & { stackPacks?: StackPackRef[] }
       }
     }
   }

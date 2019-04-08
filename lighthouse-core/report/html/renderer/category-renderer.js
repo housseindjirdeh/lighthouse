@@ -85,15 +85,15 @@ class CategoryRenderer {
         .appendChild(this.dom.convertMarkdownLinkSnippets(audit.result.description));
 
     if (audit.result.stackPacks) {
-      Object.entries(audit.result.stackPacks).forEach(([name, pack]) => {
+      audit.result.stackPacks.forEach(pack => {
         const packElm = this.dom.createElement('div');
         packElm.classList.add('lh-audit__description');
         packElm.style.display = 'flex';
         packElm.style.alignItems = 'center';
 
         const packElmImg = this.dom.createElement('img');
-        packElmImg.src = pack.icon;
-        packElmImg.alt = name;
+        packElmImg.src = pack.iconDataURL;
+        packElmImg.alt = pack.title;
         packElmImg.style.maxWidth = '50px';
         packElmImg.style.marginRight = '15px';
 

@@ -6,7 +6,7 @@
 
 'use strict';
 
-/** @type {import('./index').Pack[]} */
+/** @type {import('./stack-packs').Pack[]} */
 const stackPacks = [
   require('./packs/wordpress'),
 ];
