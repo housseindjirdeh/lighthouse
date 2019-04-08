@@ -83,7 +83,7 @@ declare global {
       HTTPRedirect: {value: boolean};
       /** Information on size and loading for all the images in the page. Natural size information for `picture` and CSS images is only available if the image was one of the largest 50 images. */
       ImageElements: Artifacts.ImageElement[];
-      /** Information on Detected Stacks used by the page. */
+      /** Information on detected tech stacks (e.g. JS libraries) used by the page. */
       Stacks: Artifacts.DetectedStack[];
       /** JS coverage information for code used during page load. */
       JsUsage: Crdp.Profiler.ScriptCoverage[];
@@ -430,10 +430,15 @@ declare global {
       }
 
       export interface DetectedStack {
-        detector: string;
+        /** The identifier on how this stack got detected */
+        detector: 'js';
+        /** The unique name of the stack stripped of special characters */
         id: string;
+        /** The name of the stack */
         name: string;
+        /** The version of the stack we found */
         version: string;
+        /** The package name on NPM if it exists */
         npm?: string;
       }
     }
