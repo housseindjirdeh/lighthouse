@@ -3,4 +3,4 @@ export interface Pack {
   iconDataURL: string;
   title: string;
   descriptions: Record<string, string>;
-};
+}

@@ -9,7 +9,6 @@ const stackPacks = require('@lighthouse/stack-packs');
 
 const stackPacksToInclude = [{
   packId: 'wordpress',
-  detectedId: 'wordpress',
   requiredStacks: ['js:wordpress'],
 }];
 
@@ -21,27 +20,27 @@ function getStackPacks(artifacts) {
   /** @type {Array<LH.StackPack>} */
   const packs = [];
 
-  artifacts.Stacks.forEach(pageStack => {
-    let matchedPack;
-    stackPacksToInclude.some(stackPackToIncl => {
-      if (!stackPackToIncl.requiredStacks.includes(`${pageStack.detector}:${pageStack.id}`)) {
-        return false;
-      }
-
-      matchedPack = stackPacks.find(pack => pack.id === stackPackToIncl.detectedId);
-
-      return !!matchedPack;
-    });
-
-    if (matchedPack) {
-      packs.push({
-        id: matchedPack.id,
-        title: matchedPack.title,
-        iconDataURL: matchedPack.iconDataURL,
-        descriptions: matchedPack.descriptions,
-      });
+  for (const pageStack of artifacts.Stacks) {
+    const stackPackToIncl = stackPacksToInclude.find(stackPackToIncl =>
+      stackPackToIncl.requiredStacks.includes(`${pageStack.detector}:${pageStack.id}`));
+    if (!stackPackToIncl) {
+      continue;
     }
-  });
+
+    // Grab the full pack definition
+    const matchedPack = stackPacks.find(pack => pack.id === stackPackToIncl.packId);
+    if (!matchedPack) {
+      // we couldn't find a pack that's in our inclusion list, this is weird.
+      continue;
+    }
+
+    packs.push({
+      id: matchedPack.id,
+      title: matchedPack.title,
+      iconDataURL: matchedPack.iconDataURL,
+      descriptions: matchedPack.descriptions,
+    });
+  }
 
   return packs;
 }
