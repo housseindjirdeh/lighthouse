@@ -87,21 +87,16 @@ class CategoryRenderer {
     if (audit.result.stackPacks) {
       audit.result.stackPacks.forEach(pack => {
         const packElm = this.dom.createElement('div');
-        packElm.classList.add('lh-audit__description');
-        packElm.style.display = 'flex';
-        packElm.style.alignItems = 'center';
+        packElm.classList.add('lh-audit__stackpack');
 
         const packElmImg = this.dom.createElement('img');
+        packElmImg.classList.add('lh-audit__stackpack__img');
         packElmImg.src = pack.iconDataURL;
         packElmImg.alt = pack.title;
-        packElmImg.style.maxWidth = '50px';
-        packElmImg.style.marginRight = '15px';
-
-        const packElmSpan = this.dom.createElement('span');
-        packElmSpan.appendChild(this.dom.convertMarkdownLinkSnippets(pack.description));
-
         packElm.appendChild(packElmImg);
-        packElm.appendChild(packElmSpan);
+
+        packElm.appendChild(this.dom.convertMarkdownLinkSnippets(pack.description));
+
         this.dom.find('.lh-audit__stackpacks', auditEl)
           .appendChild(packElm);
       });
