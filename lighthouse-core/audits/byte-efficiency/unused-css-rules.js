@@ -15,6 +15,7 @@ const UIStrings = {
   description: 'Remove dead rules from stylesheets and defer the loading of CSS not used for ' +
     'above-the-fold content to reduce unnecessary bytes consumed by network activity. ' +
     '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/unused-css).',
+  secondaryDescription: 'Magento does not have built-in support for deferring CSS, but it can be accomplished using 3rd party tools in CI or in local development.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -35,6 +36,7 @@ class UnusedCSSRules extends ByteEfficiencyAudit {
       id: 'unused-css-rules',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.secondaryDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['CSSUsage', 'URL', 'devtoolsLogs', 'traces'],
     };

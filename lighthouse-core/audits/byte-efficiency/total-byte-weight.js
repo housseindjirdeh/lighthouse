@@ -19,7 +19,8 @@ const UIStrings = {
   'Large network payloads cost users real money and are highly correlated with ' +
   'long load times. [Learn ' +
   'more](https://developers.google.com/web/tools/lighthouse/audits/network-payloads).',
-    /** Used to summarize the total byte size of the page and all its network requests. The `{totalBytes}` placeholder will be replaced with the total byte sizes, shown in kilobytes (e.g. 142 KB) */
+  secondaryDescription: 'Disable the built-in bundling feature in Magento, and instead [utilize r.js bundling](https://github.com/magento/m2-devtools/blob/master/docs/panels/RequireJS.md).',
+  /** Used to summarize the total byte size of the page and all its network requests. The `{totalBytes}` placeholder will be replaced with the total byte sizes, shown in kilobytes (e.g. 142 KB) */
   displayValue: 'Total size was {totalBytes, number, bytes}\xa0KB',
 };
 
@@ -35,6 +36,7 @@ class TotalByteWeight extends ByteEfficiencyAudit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.secondaryDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['devtoolsLogs', 'traces'],
     };

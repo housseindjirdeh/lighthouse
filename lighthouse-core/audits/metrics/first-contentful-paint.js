@@ -15,6 +15,7 @@ const UIStrings = {
   /** Description of the First Contentful Paint (FCP) metric, which marks the time at which the first text or image is painted by the browser. This is displayed within a tooltip when the user hovers on the metric name to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description: 'First Contentful Paint marks the time at which the first text or image is ' +
       `painted. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint).`,
+  secondaryDescription: 'Magento\'s built-in JS bundling injects large, blocking script requests in the head of the document, blocking the first paint. Consider implementing the [`r.js` method](https://github.com/magento/m2-devtools/blob/master/docs/panels/RequireJS.md).',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -28,6 +29,7 @@ class FirstContentfulPaint extends Audit {
       id: 'first-contentful-paint',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.secondaryDescription),
       scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['traces', 'devtoolsLogs'],
     };

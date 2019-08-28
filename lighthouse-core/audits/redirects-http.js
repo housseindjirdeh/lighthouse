@@ -16,6 +16,7 @@ const UIStrings = {
   /** Description of a Lighthouse audit that tells the user why they should direct HTTP traffic to HTTPS. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description: 'If you\'ve already set up HTTPS, make sure that you redirect all HTTP ' +
     'traffic to HTTPS in order to enable secure web features for all your users. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/http-redirects-to-https).',
+  secondaryDescription: 'Ensure you have set the `use-secure`, `base-url-secure`, and `use-secure-admin` parameters to (always use HTTPS)(https://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli-subcommands-store.html).',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -30,6 +31,7 @@ class RedirectsHTTP extends Audit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.secondaryDescription),
       requiredArtifacts: ['HTTPRedirect'],
     };
   }

@@ -19,6 +19,7 @@ const UIStrings = {
   /** Description of a Lighthouse audit that tells the user *why* they need to efficiently encode images. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description: 'Optimized images load faster and consume less cellular data. ' +
   '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/optimize-images).',
+  secondaryDescription: 'See the Magento Marketplace for a variety of 3rd party extensions to optimize images.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -34,6 +35,7 @@ class UsesOptimizedImages extends ByteEfficiencyAudit {
       id: 'uses-optimized-images',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.secondaryDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['OptimizedImages', 'ImageElements', 'devtoolsLogs', 'traces', 'URL'],
     };

@@ -21,6 +21,7 @@ const UIStrings = {
       'in on the communications between your app and your users, and is a prerequisite for ' +
       'HTTP/2 and many new web platform APIs. ' +
       '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/https).',
+  secondaryDescription: 'Ensure you have set the `use-secure`, `base-url-secure`, and `use-secure-admin` parameters to (always use HTTPS)(https://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli-subcommands-store.html).',
   /** [ICU Syntax] Label identifying the number of insecure network requests found by an audit of a web page. */
   displayValue: `{itemCount, plural,
     =1 {1 insecure request found}
@@ -45,6 +46,7 @@ class HTTPS extends Audit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
+      secondaryDescription: str_(UIStrings.secondaryDescription),
       requiredArtifacts: ['devtoolsLogs'],
     };
   }
