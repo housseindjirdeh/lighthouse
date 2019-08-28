@@ -18,7 +18,6 @@ const UIStrings = {
   title: 'Avoid multiple page redirects',
   /** Description of a Lighthouse audit that tells users why they should reduce the number of server-side redirects on their page. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description: 'Redirects introduce additional delays before the page can be loaded. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/redirects).',
-  description: 'If you are using React Router, minimize usage of the [<Redirect>](https://reacttraining.com/react-router/web/api/Redirect) component.',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);

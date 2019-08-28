@@ -23,7 +23,6 @@ const UIStrings = {
   /** Description of a Lighthouse audit that tells the user *why* they should reduce JS execution times. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description: 'Consider reducing the time spent parsing, compiling and executing JS. ' +
     'You may find delivering smaller JS payloads helps with this.',
-  reactDescription: 'Consider using React.lazy to split your components into separate chunks. Start at the route level to make things easier. [Learn more](https://reactjs.org/docs/code-splitting.html#reactlazy).',
   /** Label for the Main Thread Category column in data tables, rows will have a main thread Category and main thread Task Name. */
   columnCategory: 'Category',
 };
@@ -42,7 +41,6 @@ class MainThreadWorkBreakdown extends Audit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
-      secondaryDescription: str_(UIStrings.reactDescription),
       scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['traces'],
     };

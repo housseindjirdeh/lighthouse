@@ -23,9 +23,7 @@ const UIStrings = {
   description:
     'Consider lazy-loading offscreen and hidden images after all critical resources have ' +
     'finished loading to lower time to interactive. ' +
-    '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/offscreen-images).',
-  reactDescription:
-    'Consider using a [third-party library](https://github.com/search?q=react+lazy+load+image) that defers loading of offscreen images until they are close to the viewport. Alternatively, create a wrapper image component that uses [IntersectionObserver](https://developers.google.com/web/updates/2016/04/intersectionobserver) to lazy load images below the device viewport.',
+    '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/offscreen-images).'
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -48,7 +46,6 @@ class OffscreenImages extends ByteEfficiencyAudit {
       id: 'offscreen-images',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
-      secondaryDescription: str_(UIStrings.reactDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['ImageElements', 'ViewportDimensions', 'devtoolsLogs', 'traces'],
     };

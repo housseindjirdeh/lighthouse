@@ -19,10 +19,7 @@ const UIStrings = {
   'Large network payloads cost users real money and are highly correlated with ' +
   'long load times. [Learn ' +
   'more](https://developers.google.com/web/tools/lighthouse/audits/network-payloads).',
-  /** WordPress description **/
-  reactDescription:
-  'Consider splitting your JavaScript bundle with [React.lazy()](https://reactjs.org/docs/code-splitting.html#reactlazy) and caching resources with a service worker. Ensure a [minified, production build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build) of your application is also deployed.',
-  /** Used to summarize the total byte size of the page and all its network requests. The `{totalBytes}` placeholder will be replaced with the total byte sizes, shown in kilobytes (e.g. 142 KB) */
+    /** Used to summarize the total byte size of the page and all its network requests. The `{totalBytes}` placeholder will be replaced with the total byte sizes, shown in kilobytes (e.g. 142 KB) */
   displayValue: 'Total size was {totalBytes, number, bytes}\xa0KB',
 };
 
@@ -38,7 +35,6 @@ class TotalByteWeight extends ByteEfficiencyAudit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
-      secondaryDescription: str_(UIStrings.reactDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['devtoolsLogs', 'traces'],
     };

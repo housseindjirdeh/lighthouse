@@ -16,7 +16,6 @@ const UIStrings = {
   /** Description of a Lighthouse audit that tells the user *why* they should minify (remove whitespace) the page's CSS code. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description: 'Minifying CSS files can reduce network payload sizes. ' +
   '[Learn more](https://developers.google.com/web/tools/lighthouse/audits/minify-css).',
-  reactDescription: 'If your build system minifies your CSS files automatically, ensure that you are deploying the production build of your application. You can check this with the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) extension. [Learn more](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build).'
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -36,7 +35,6 @@ class UnminifiedCSS extends ByteEfficiencyAudit {
       id: 'unminified-css',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
-      secondaryDescription: str_(UIStrings.reactDescription),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['CSSUsage', 'devtoolsLogs', 'traces', 'URL'],
     };

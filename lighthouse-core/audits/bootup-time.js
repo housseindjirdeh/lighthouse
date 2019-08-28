@@ -21,7 +21,6 @@ const UIStrings = {
   description: 'Consider reducing the time spent parsing, compiling, and executing JS. ' +
     'You may find delivering smaller JS payloads helps with this. [Learn ' +
     'more](https://developers.google.com/web/tools/lighthouse/audits/bootup).',
-  reactDescription: 'Consider splitting your bundle with [React.lazy()](https://reactjs.org/docs/code-splitting.html#reactlazy) and caching resources with a service worker to reduce JavaScript execution time. Ensure a [minified, production build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build) of your application is also deployed.',
   /** Label for the total time column in a data table; entries will be the number of milliseconds spent executing per resource loaded by the page. */
   columnTotal: 'Total CPU Time',
   /** Label for a time column in a data table; entries will be the number of milliseconds spent evaluating script for every script loaded by the page. */
@@ -45,7 +44,6 @@ class BootupTime extends Audit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
-      secondaryDescription: str_(UIStrings.reactDescription),
       scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
       requiredArtifacts: ['traces', 'devtoolsLogs'],
     };

@@ -17,7 +17,6 @@ const UIStrings = {
   /** Description of a Lighthouse audit that tells the user *why* they should reduce the amount of time it takes their server to start responding to requests. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description: 'Time To First Byte identifies the time at which your server sends a response.' +
     ' [Learn more](https://developers.google.com/web/tools/lighthouse/audits/ttfb).',
-  reactDescription: 'If you are server-side rendering any React components, consider using renderToNodeStream() or renderToStaticNodeStream() ato allow the client to receive and hydrate different parts of the markup instead of all at once. [Learn more](https://reactjs.org/docs/react-dom-server.html#rendertonodestream).',
   /** Used to summarize the total Time to First Byte duration for the primary HTML response. The `{timeInMs}` placeholder will be replaced with the time duration, shown in milliseconds (e.g. 210 ms) */
   displayValue: `Root document took {timeInMs, number, milliseconds}\xa0ms`,
 };
@@ -36,7 +35,6 @@ class TTFBMetric extends Audit {
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
-      secondaryDescription: str_(UIStrings.reactDescription),
       requiredArtifacts: ['devtoolsLogs', 'URL'],
     };
   }
