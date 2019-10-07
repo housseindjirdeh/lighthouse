@@ -1839,6 +1839,26 @@
       "detector": "js",
       "id": "wordpress",
       "name": "WordPress"
+    },
+    {
+      "detector": "js",
+      "id": "react",
+      "name": "React"
+    },
+    {
+      "detector": "js",
+      "id": "angular",
+      "name": "Angular"
+    },
+    {
+      "detector": "js",
+      "id": "amp",
+      "name": "AMP"
+    },
+    {
+      "detector": "js",
+      "id": "magento",
+      "name": "Magento"
     }
   ],
   "OptimizedImages": [
