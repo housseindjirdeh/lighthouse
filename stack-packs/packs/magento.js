@@ -1,0 +1,69 @@
+/**
+ * @license Copyright 2019 Google Inc. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ */
+/* eslint-disable max-len */
+
+'use strict';
+
+const i18n = require('../../lighthouse-core/lib/i18n/i18n.js');
+
+// TODO: Get Magento icon
+const magentoIcon = '';
+
+const UIStrings = {
+  /** Additional description of a Lighthouse audit that tells the user how they can improve performance by deferring unused CSS in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  unused_css_rules: 'Magento does not have built-in support for deferring CSS, but it can be accomplished using third-party tools in CI or in local development.',
+  /** Additional description of a Lighthouse audit that tells the user how they can improve image loading by using webp in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  uses_webp_images: 'Consider searching the [Magento Marketplace](https://marketplace.magento.com/catalogsearch/result/?q=webp) for a variety of third-party extensions to leverage newer image formats.',
+  /** Additional description of a Lighthouse audit that tells the user how they can improve performance by lazy loading images that are initially offscreen in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  offscreen_images: 'Consider modifying your product and catalog templates to make use of the web platform\'s [lazy loading](https://web.dev/native-lazy-loading) feature.',
+  /** Additional description of a Lighthouse audit that tells the user how they can improve site loading performance by reducing the total bytes delivered by their page in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  total_byte_weight: 'Disable Magento\'s built-in [JavaScript bundling and minification](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/js-bundling.html), and consider using [baler](https://github.com/magento/baler/).',
+  /** Additional description of a Lighthouse audit that tells the user how they can improve performance by reducing the amount of render blocking resources present on their page, in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  render_blocking_resources: 'Disable Magento\'s built-in [JavaScript bundling and minification](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/js-bundling.html), and consider using [baler](https://github.com/magento/baler/) instead.',
+  /** Additional description of a Lighthouse audit that tells the user how they can improve performance by minifying their CSS files in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  unminified_css: 'Enable the "Minify CSS Files" option in the store\'s Developer settings.',
+  /** Additional description of a Lighthouse audit that tells the user how they can improve performance by minifying their Javascript files in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  unminified_javascript: 'Use [Terser](https://www.npmjs.com/package/terser) to minify all JavaScript assets outfrom from static content deployment, and disable the built-in minification feature.',
+  /** Additional description of a Lighthouse audit that tells the user how they can improve performance by removing unused Javascript files in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  unused_javascript: 'Disable Magento\'s built-in [JavaScript bundling](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/js-bundling.html).',
+  /** Additional description of a Lighthouse audit that tells the user how they can improve site performance by optimizing images, in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  uses_optimized_images: 'Consider searching the [Magento Marketplace](https://marketplace.magento.com/catalogsearch/result/?q=optimize%20image) for a variety of third party extensions to optimize images.',
+  /** Additional description of a Lighthouse audit that tells the user how they can improve the time to first byte speed metric, in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  time_to_first_byte: 'Use Magento\'s [Varnish integration](https://devdocs.magento.com/guides/v2.3/config-guide/varnish/config-varnish.html).',
+  /** Additional description of a Lighthouse audit that tells the user how they can add preconnect or dns-prefetch resource hints, in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  uses_rel_preconnect: 'Preconnect or dns-prefetch resource hints can be added by [modifying a themes\'s layout](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/layouts/xml-manage.html).',
+  /** Additional description of a Lighthouse audit that tells the user how they can add preload tags, in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  uses_rel_preload: '`<link rel=preload>` tags can be added by [modifying a themes\'s layout](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/layouts/xml-manage.html).',
+  /** Additional description of a Lighthouse audit that tells the user how they can minimize critical request chains, in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  critical_request_chains: 'If you are not bundling your JavaScript assets, consider using [baler](https://github.com/magento/baler).',
+  /** Additional description of a Lighthouse audit that tells the user how they can specify font-display, in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  font_display: 'Specify `@font-display` when [defining custom fonts](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/css-topics/using-fonts.html).',
+};
+
+const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
+
+module.exports = {
+  id: 'magento',
+  iconDataURL: magentoIcon,
+  title: 'Magento',
+  descriptions: {
+    'unused-css-rules': str_(UIStrings.unused_css_rules),
+    'uses-webp-images': str_(UIStrings.uses_webp_images),
+    'offscreen-images': str_(UIStrings.offscreen_images),
+    'total-byte-weight': str_(UIStrings.total_byte_weight),
+    'render-blocking-resources': str_(UIStrings.render_blocking_resources),
+    'unminified-css': str_(UIStrings.unminified_css),
+    'unminified-javascript': str_(UIStrings.unminified_javascript),
+    'unused-javascript': str_(UIStrings.unused_javascript),
+    'uses-optimized-images': str_(UIStrings.uses_optimized_images),
+    'time-to-first-byte': str_(UIStrings.time_to_first_byte),
+    'uses-rel-preconnect': str_(UIStrings.uses_rel_preconnect),
+    'uses-rel-preload': str_(UIStrings.uses_rel_preload),
+    'critical-request-chains': str_(UIStrings.critical_request_chains),
+    'font-display': str_(UIStrings.font_display),
+  },
+};
+module.exports.UIStrings = UIStrings;
