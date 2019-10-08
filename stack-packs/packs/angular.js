@@ -15,10 +15,8 @@ const angularIcon = ``;
 const UIStrings = {
   /** Additional description of a Lighthouse audit that tells the user how they can improve site loading performance by reducing the total bytes delivered by their page in the context of the Angular framework. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
   total_byte_weight:  'Apply route-level code-splitting to minimize the size of your JavaScript bundles. [Learn more](https://web.dev/route-level-code-splitting-in-angular/). Also, consider precaching assets with the [Angular service worker](https://web.dev/precaching-with-the-angular-service-worker/).',
-  /** Additional description of a Lighthouse audit that tells the user how they can improve performance by minifying their CSS files in the context of the Angular framework. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
-  unminified_css: 'If you are using Angular CLI, ensure that builds are generated in production mode. [Learn more](https://angular.io/guide/deployment#enable-runtime-production-mode).',
-  /** Additional description of a Lighthouse audit that tells the user how they can improve performance by minifying their Javascript files in the context of the Angular framework. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
-  unminified_javascript: 'If you are using Angular CLI, ensure that builds are generated in production mode. [Learn more](https://angular.io/guide/deployment#enable-runtime-production-mode).',
+  /** Additional description of a Lighthouse audit that tells the user how they can improve performance by minifying their CSS and JS files in the context of the Angular framework. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  unminified_warning: 'If you are using Angular CLI, ensure that builds are generated in production mode. [Learn more](https://angular.io/guide/deployment#enable-runtime-production-mode).',
   /** Additional description of a Lighthouse audit that tells the user how they can improve performance by removing unused Javascript files in the context of the Angular framework. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
   unused_javascript: 'If you are using Angular CLI, include source maps into your production build to inspect your bundles. [Learn more](https://angular.io/guide/deployment#inspect-the-bundles).',
   /** Additional description of a Lighthouse audit that tells the user how they can use responsive images in the context of the Angular framework. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
@@ -37,8 +35,8 @@ module.exports = {
   title: 'Angular',
   descriptions: {
     'total-byte-weight': str_(UIStrings.total_byte_weight),
-    'unminified-css': str_(UIStrings.unminified_css),
-    'unminified-javascript': str_(UIStrings.unminified_javascript),
+    'unminified-css': str_(UIStrings.unminified_warning),
+    'unminified-javascript': str_(UIStrings.unminified_warning),
     'unused-javascript': str_(UIStrings.unused_javascript),
     'uses-responsive-images': str_(UIStrings.uses_responsive_images),
     'uses-rel-preload': str_(UIStrings.uses_rel_preload),
