@@ -2883,6 +2883,18 @@
           },
           {
             "name": "WordPress"
+          },
+          {
+            "name": "React"
+          },
+          {
+            "name": "Angular"
+          },
+          {
+            "name": "AMP"
+          },
+          {
+            "name": "Magento"
           }
         ],
         "summary": {}
