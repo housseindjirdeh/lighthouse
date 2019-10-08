@@ -9,8 +9,7 @@
 
 const i18n = require('../../lighthouse-core/lib/i18n/i18n.js');
 
-// TODO: get React icon
-const reactIcon = ``;
+const reactIcon = `data:image/svg+xml,%3Csvg viewBox='-11.5 -10.232 23 20.463' xmlns='http://www.w3.org/2000/svg' %3E%3Ccircle r='2.05' fill='#61dafb'/%3E%3Cg stroke='#61dafb' fill='none'%3E%3Cellipse rx='11' ry='4.2'/%3E%3Cellipse rx='11' ry='4.2' transform='rotate(60)'/%3E%3Cellipse rx='11' ry='4.2' transform='rotate(120)'/%3E%3C/g%3C/svg%3E`;
 
 const UIStrings = {
   /** Additional description of a Lighthouse audit that tells the user how they can improve performance by minifying their CSS files in the context of the React library. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */

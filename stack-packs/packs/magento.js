@@ -9,8 +9,7 @@
 
 const i18n = require('../../lighthouse-core/lib/i18n/i18n.js');
 
-// TODO: Get Magento icon
-const magentoIcon = '';
+const magentoIcon = `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="#f26322" viewBox="0 0 1000 1000"%3E%3Cpath d="M916.9 267.4v465.3l-111.3 67.4V331.4l-1.5-.9-303.9-189-304.6 189.2-1.2.8V799L83.1 732.6V267.4l.7-.4L500.3 10l416 257 .6.4zM560.7 468.5v383.3L500.3 890l-61-38.2V306.7l-136 84.3v476.6l197 122.5 196.4-122.5V391l-136-84.3v161.8z"/%3E%3C/svg%3E`;
 
 const UIStrings = {
   /** Additional description of a Lighthouse audit that tells the user how they can improve performance by deferring unused CSS in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
