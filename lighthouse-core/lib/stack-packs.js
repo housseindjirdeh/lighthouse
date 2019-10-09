@@ -24,7 +24,7 @@ const stackPacksToInclude = [
   },
   {
     packId: 'angular',
-    requiredStacks: ['js:angular'],
+    requiredStacks: ['js:@angular/core'],
   },
   {
     packId: 'amp',
