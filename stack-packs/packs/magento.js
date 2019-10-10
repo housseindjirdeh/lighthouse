@@ -12,18 +12,14 @@ const i18n = require('../../lighthouse-core/lib/i18n/i18n.js');
 const magentoIcon = `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="%23f26322" viewBox="0 0 1000 1000"%3E%3Cpath d="M916.9 267.4v465.3l-111.3 67.4V331.4l-1.5-.9-303.9-189-304.6 189.2-1.2.8V799L83.1 732.6V267.4l.7-.4L500.3 10l416 257 .6.4zM560.7 468.5v383.3L500.3 890l-61-38.2V306.7l-136 84.3v476.6l197 122.5 196.4-122.5V391l-136-84.3v161.8z"/%3E%3C/svg%3E`;
 
 const UIStrings = {
-  /** Additional description of a Lighthouse audit that tells the user how they can improve performance by deferring unused CSS in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
-  unused_css_rules: 'Magento does not have built-in support for deferring CSS, but it can be accomplished using third-party tools in CI or in local development.',
   /** Additional description of a Lighthouse audit that tells the user how they can improve image loading by using webp in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
   uses_webp_images: 'Consider searching the [Magento Marketplace](https://marketplace.magento.com/catalogsearch/result/?q=webp) for a variety of third-party extensions to leverage newer image formats.',
   /** Additional description of a Lighthouse audit that tells the user how they can improve performance by lazy loading images that are initially offscreen in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
   offscreen_images: 'Consider modifying your product and catalog templates to make use of the web platform\'s [lazy loading](https://web.dev/native-lazy-loading) feature.',
-  /** Additional description of a Lighthouse audit that tells the user how they can improve site loading performance by reducing the total bytes delivered by their page in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
-  total_byte_weight: 'Disable Magento\'s built-in [JavaScript bundling and minification](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/js-bundling.html), and consider using [baler](https://github.com/magento/baler/).',
-  /** Additional description of a Lighthouse audit that tells the user how they can improve performance by reducing the amount of render blocking resources present on their page, in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
-  render_blocking_resources: 'Disable Magento\'s built-in [JavaScript bundling and minification](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/js-bundling.html), and consider using [baler](https://github.com/magento/baler/) instead.',
+  /** Additional description of a Lighthouse audit that tells the user how they can improve site loading performance by disabling JS bundling in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
+  disable_bundling: 'Disable Magento\'s built-in [JavaScript bundling and minification](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/js-bundling.html), and consider using [baler](https://github.com/magento/baler/) instead.',
   /** Additional description of a Lighthouse audit that tells the user how they can improve performance by minifying their CSS files in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
-  unminified_css: 'Enable the "Minify CSS Files" option in the store\'s Developer settings.',
+  unminified_css: 'Enable the "Minify CSS Files" option in your store\'s Developer settings. [Learn more](https://devdocs.magento.com/guides/v2.3/performance-best-practices/configuration.html?itm_source=devdocs&itm_medium=search_page&itm_campaign=federated_search&itm_term=minify%20css%20files).',
   /** Additional description of a Lighthouse audit that tells the user how they can improve performance by minifying their Javascript files in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
   unminified_javascript: 'Use [Terser](https://www.npmjs.com/package/terser) to minify all JavaScript assets outfrom from static content deployment, and disable the built-in minification feature.',
   /** Additional description of a Lighthouse audit that tells the user how they can improve performance by removing unused Javascript files in the context of the Magento platform. This is displayed after a user expands the section to see more. No character length limits. Links in (parenthesis) become link texts to additional documentation. */
@@ -49,11 +45,10 @@ module.exports = {
   iconDataURL: magentoIcon,
   title: 'Magento',
   descriptions: {
-    'unused-css-rules': str_(UIStrings.unused_css_rules),
     'uses-webp-images': str_(UIStrings.uses_webp_images),
     'offscreen-images': str_(UIStrings.offscreen_images),
-    'total-byte-weight': str_(UIStrings.total_byte_weight),
-    'render-blocking-resources': str_(UIStrings.render_blocking_resources),
+    'total-byte-weight': str_(UIStrings.disable_bundling),
+    'render-blocking-resources': str_(UIStrings.disable_bundling),
     'unminified-css': str_(UIStrings.unminified_css),
     'unminified-javascript': str_(UIStrings.unminified_javascript),
     'unused-javascript': str_(UIStrings.unused_javascript),

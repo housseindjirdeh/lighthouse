@@ -6,10 +6,10 @@ Stack packs extend Lighthouse to detect what stacks your site is built with in o
 
 1. Add a new stack pack file to the `packs/` directory. This file needs to include a few exported properties:
 
-```
+```javascript
 module.exports = {
   id: ..., // ID
-  iconDataURL: ..., //SVG encoded icon
+  iconDataURL: ..., // SVG encoded icon
   title: ..., // title string
   descriptions: {
     // specify any relevant audit descriptions here
@@ -19,7 +19,7 @@ module.exports = {
 
 2. Import your new stack pack in `index.js` in this directory:
 
-```
+```javascript
 const stackPacks = [
   //...
   require('./packs/new-stack-pack.js'),
@@ -28,7 +28,7 @@ const stackPacks = [
 
 3. Add new stack pack to included packs in `lighthouse-core/lib/stack-packs.js`:
 
-```
+```javascript
 const stackPacksToInclude = [
   //...
   {
