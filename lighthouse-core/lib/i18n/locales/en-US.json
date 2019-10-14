@@ -1500,7 +1500,7 @@
     "message": "For animated content, use [amp-anim](https://amp.dev/documentation/components/amp-anim/) to minimize CPU usage while the content remains offscreen."
   },
   "stack-packs/packs/amp.js | offscreen_images": {
-    "message": "`amp-img` automatically lazy-loads images outside the first viewport. There's nothing you need to do."
+    "message": "Ensure that you are you using valid `amp-img` tags for your images which automatically lazy-load outside the first viewport. [Learn more](https://amp.dev/documentation/guides-and-tutorials/develop/media_iframes_3p/?format=websites#images)."
   },
   "stack-packs/packs/amp.js | render_blocking_resources": {
     "message": "Use tools such as [AMP Optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer) to [server-side render AMP layouts](https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/server-side-rendering/)."
@@ -1518,7 +1518,7 @@
     "message": "Consider virtual scrolling with the Component Dev Kit (CDK) if very large lists are being rendered. [Learn more](https://web.dev/virtualize-lists-with-angular-cdk/)."
   },
   "stack-packs/packs/angular.js | total_byte_weight": {
-    "message": "Apply route-level code-splitting to minimize the size of your JavaScript bundles. [Learn more](https://web.dev/route-level-code-splitting-in-angular/). Also, consider precaching assets with the [Angular service worker](https://web.dev/precaching-with-the-angular-service-worker/)."
+    "message": "Apply [route-level code-splitting](https://web.dev/route-level-code-splitting-in-angular/) to minimize the size of your JavaScript bundles. Also, consider precaching assets with the [Angular service worker](https://web.dev/precaching-with-the-angular-service-worker/)."
   },
   "stack-packs/packs/angular.js | unminified_warning": {
     "message": "If you are using Angular CLI, ensure that builds are generated in production mode. [Learn more](https://angular.io/guide/deployment#enable-runtime-production-mode)."
@@ -1535,29 +1535,23 @@
   "stack-packs/packs/magento.js | critical_request_chains": {
     "message": "If you are not bundling your JavaScript assets, consider using [baler](https://github.com/magento/baler)."
   },
+  "stack-packs/packs/magento.js | disable_bundling": {
+    "message": "Disable Magento's built-in [JavaScript bundling and minification](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/js-bundling.html), and consider using [baler](https://github.com/magento/baler/) instead."
+  },
   "stack-packs/packs/magento.js | font_display": {
     "message": "Specify `@font-display` when [defining custom fonts](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/css-topics/using-fonts.html)."
   },
   "stack-packs/packs/magento.js | offscreen_images": {
     "message": "Consider modifying your product and catalog templates to make use of the web platform's [lazy loading](https://web.dev/native-lazy-loading) feature."
   },
-  "stack-packs/packs/magento.js | render_blocking_resources": {
-    "message": "Disable Magento's built-in [JavaScript bundling and minification](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/js-bundling.html), and consider using [baler](https://github.com/magento/baler/) instead."
-  },
   "stack-packs/packs/magento.js | time_to_first_byte": {
     "message": "Use Magento's [Varnish integration](https://devdocs.magento.com/guides/v2.3/config-guide/varnish/config-varnish.html)."
   },
-  "stack-packs/packs/magento.js | total_byte_weight": {
-    "message": "Disable Magento's built-in [JavaScript bundling and minification](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/js-bundling.html), and consider using [baler](https://github.com/magento/baler/)."
-  },
   "stack-packs/packs/magento.js | unminified_css": {
-    "message": "Enable the \"Minify CSS Files\" option in the store's Developer settings."
+    "message": "Enable the \"Minify CSS Files\" option in your store's Developer settings. [Learn more](https://devdocs.magento.com/guides/v2.3/performance-best-practices/configuration.html?itm_source=devdocs&itm_medium=search_page&itm_campaign=federated_search&itm_term=minify%20css%20files)."
   },
   "stack-packs/packs/magento.js | unminified_javascript": {
     "message": "Use [Terser](https://www.npmjs.com/package/terser) to minify all JavaScript assets outfrom from static content deployment, and disable the built-in minification feature."
-  },
-  "stack-packs/packs/magento.js | unused_css_rules": {
-    "message": "Magento does not have built-in support for deferring CSS, but it can be accomplished using third-party tools in CI or in local development."
   },
   "stack-packs/packs/magento.js | unused_javascript": {
     "message": "Disable Magento's built-in [JavaScript bundling](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/js-bundling.html)."
@@ -1575,10 +1569,10 @@
     "message": "Consider searching the [Magento Marketplace](https://marketplace.magento.com/catalogsearch/result/?q=webp) for a variety of third-party extensions to leverage newer image formats."
   },
   "stack-packs/packs/react.js | dom_size": {
-    "message": "If you are rendering very large lists, consider using a “windowing” library like `react-window` to minimize the number of DOM nodes created. [Learn more](https://web.dev/virtualize-long-lists-react-window/). Also, minimize unecessary re-renders using [shouldComponentUpdate](https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action), [PureComponent](https://reactjs.org/docs/react-api.html#reactpurecomponent), or [React.memo](https://reactjs.org/docs/react-api.html#reactmemo) and [skip effects](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects) only until certain dependencies have changed if you are using the Effect hook to improve runtime performance."
+    "message": "Consider using a “windowing” library like `react-window` to minimize the number of DOM nodes created if you are rendering many repeated elements on the page. [Learn more](https://web.dev/virtualize-long-lists-react-window/). Also, minimize unecessary re-renders using [shouldComponentUpdate](https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action), [PureComponent](https://reactjs.org/docs/react-api.html#reactpurecomponent), or [React.memo](https://reactjs.org/docs/react-api.html#reactmemo) and [skip effects](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects) only until certain dependencies have changed if you are using the Effect hook to improve runtime performance."
   },
   "stack-packs/packs/react.js | redirects": {
-    "message": "If you are using React Router, minimize usage of the [<Redirect>](https://reacttraining.com/react-router/web/api/Redirect) component."
+    "message": "If you are using React Router, minimize usage of the `<Redirect>` component for [route navigations](https://reacttraining.com/react-router/web/api/Redirect)."
   },
   "stack-packs/packs/react.js | time_to_first_byte": {
     "message": "If you are server-side rendering any React components, consider using `renderToNodeStream()` or `renderToStaticNodeStream()` to allow the client to receive and hydrate different parts of the markup instead of all at once. [Learn more](https://reactjs.org/docs/react-dom-server.html#rendertonodestream)."
@@ -1590,7 +1584,7 @@
     "message": "If your build system minifies your JS files automatically, ensure that you are deploying the production build of your application. You can check this with the React Developer Tools extension. [Learn more](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)."
   },
   "stack-packs/packs/react.js | unused_javascript": {
-    "message": "If you are not server-side rendering, split your JavaScript bundles with [React.lazy()](https://web.dev/code-splitting-suspense/). Otherwise, code-split using a third-party library such as [loadable-components](https://www.smooth-code.com/open-source/loadable-components/docs/getting-started/)."
+    "message": "If you are not server-side rendering, [split your JavaScript bundles](https://web.dev/code-splitting-suspense/) with `React.lazy()`. Otherwise, code-split using a third-party library such as [loadable-components](https://www.smooth-code.com/open-source/loadable-components/docs/getting-started/)."
   },
   "stack-packs/packs/react.js | user_timings": {
     "message": "Use the React DevTools Profiler, which makes use of the Profiler API, to measure the rendering performance of your components. [Learn more.](https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html)"
