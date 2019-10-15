@@ -15,7 +15,8 @@ const expectations = [
       Stacks: [{
         id: 'jquery',
       }, {
-        id: 'jquery', // for jquery's "fast path" stack. Multiple stacks have a second "fast path" version in the library detector
+        id: 'jquery',
+        name: 'jQuery (Fast path)',
       }, {
         id: 'wordpress',
       }],
