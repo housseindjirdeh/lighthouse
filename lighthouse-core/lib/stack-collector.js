@@ -31,7 +31,6 @@ const libDetectorSource = fs.readFileSync(
  * @typedef JSLibrary
  * @property {string} id
  * @property {string} name
- * @property {string} icon
  * @property {string|null} version
  * @property {string|null} npm
  */
@@ -57,7 +56,6 @@ async function detectLibraries() {
         libraries.push({
           id: lib.id,
           name: name,
-          icon: lib.icon,
           version: result.version,
           npm: lib.npm,
         });
